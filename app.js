@@ -1,18 +1,20 @@
 const express = require('express');
 const fs = require("fs");
 const bodyParser = require('body-parser');
+require('dotenv').config();
 const app = express();
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 const port = process.env.port || 4000;
 const { Client, Pool } = require('pg');
 
+//read credentials from .env file
 const credentials = {
-  user: 'nhipsqen',
-  host: 'mouse.db.elephantsql.com',
-  database: 'nhipsqen',
-  password: 'yatwcfaAtUhWWHgiX2_SgPAqUNIGXvOn',
-  port: 5432,
+    user: process.env.db_user_, 
+    host: process.env.db_host_, 
+    database: process.env.db_database_,
+    password: process.env.db_password_, 
+    port: process.env.db_port_
 };
 
 const showResults = (response, error, results) => {
