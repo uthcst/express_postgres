@@ -147,6 +147,7 @@
         }
 
         function selectPerson(event) {
+            if (!event.target.outerHTML.startsWith("<td>")) return;
             let aRow = event.target.parentNode;
             let inputs=document.querySelectorAll("#personsForm input");
             for (let i=0; i < inputs.length; i++){

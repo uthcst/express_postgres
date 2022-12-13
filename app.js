@@ -54,7 +54,6 @@ async function addPerson(req, res) {
             console.log(error);
         }
         res.status(200).json(`Person added with ID: ${results.rows[0].id}`);
-        //res.status(201).send(`{status: 'Ok', message: 'Person added with ID: ${results.rows[0].id}'`)
     });
 }
 
